@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d1117;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e2d40;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00d4ff40;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-glass;
+  }
+
+  /* Neon bordered card */
+  .neon-card {
+    @apply glass-card border-neon-400/20 shadow-neon-cyan;
+  }
+
+  /* Status badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-ok    { @apply badge bg-emerald-400/15 text-emerald-400 border border-emerald-400/30; }
+  .badge-warn  { @apply badge bg-amber-400/15 text-amber-400 border border-amber-400/30; }
+  .badge-error { @apply badge bg-crimson-500/15 text-crimson-400 border border-crimson-500/30; }
+  .badge-info  { @apply badge bg-neon-400/15 text-neon-400 border border-neon-400/30; }
+
+  /* Metric card */
+  .metric-card {
+    @apply glass-card p-5 flex flex-col gap-2 hover:border-neon-400/30 transition-all duration-300;
+  }
+
+  /* Navigation link */
+  .nav-link {
+    @apply text-slate-400 hover:text-neon-400 transition-colors duration-200 text-sm font-medium;
+  }
+
+  /* Animated pulse dot */
+  .live-dot {
+    @apply relative flex h-2.5 w-2.5;
+  }
+  .live-dot::before {
+    @apply absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping;
+    content: '';
+  }
+  .live-dot::after {
+    @apply relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500;
+    content: '';
+  }
+}
+
+@layer utilities {
+  .text-gradient-neon {
+    @apply bg-gradient-to-r from-neon-400 to-violet-400 bg-clip-text text-transparent;
+  }
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-neon-300 via-violet-400 to-midnight-300 bg-clip-text text-transparent;
+  }
+}
+
+/* Leaflet map dark mode overrides */
+.leaflet-container {
+  background: #080b14 !important;
+}
+.leaflet-tile-pane {
+  filter: brightness(0.7) saturate(0.8) hue-rotate(180deg) invert(1);
+}

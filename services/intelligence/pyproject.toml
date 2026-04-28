@@ -1,0 +1,12 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["tests/*", "app/ml/training_pipeline.py"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 70

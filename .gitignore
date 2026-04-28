@@ -1,0 +1,243 @@
+# ─────────────────────────────────────────────
+# NexGen SCM Digital Twin — .gitignore
+# ─────────────────────────────────────────────
+
+# ══════════════════════════════════════════════
+# Node.js / Next.js (frontend/)
+# ══════════════════════════════════════════════
+node_modules/
+**/node_modules/
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+.npm
+.eslintcache
+.cache
+.parcel-cache
+
+# Next.js env files (contain secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# ══════════════════════════════════════════════
+# Python / FastAPI (services/intelligence/)
+# ══════════════════════════════════════════════
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+.env/
+virtualenv/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+nosetests.xml
+test-results/
+junit.xml
+
+# mypy / pyright / ruff
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+pyrightconfig.json
+
+# ══════════════════════════════════════════════
+# Go (services/ingestion/)
+# ══════════════════════════════════════════════
+# Compiled binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace
+go.work
+go.work.sum
+go.sum
+
+# ══════════════════════════════════════════════
+# Flutter / Dart (mobile/)
+# ══════════════════════════════════════════════
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+*.iml
+
+# Flutter generated
+mobile/.dart_tool/
+mobile/build/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/android/.gradle/
+mobile/android/local.properties
+mobile/android/key.properties
+mobile/android/app/google-services.json
+mobile/ios/Pods/
+mobile/ios/.symlinks/
+mobile/ios/Flutter/App.framework
+mobile/ios/Flutter/Flutter.framework
+mobile/ios/Flutter/Flutter.podspec
+mobile/ios/Flutter/Generated.xcconfig
+mobile/ios/Flutter/ephemeral/
+mobile/ios/Runner/GeneratedPluginRegistrant.*
+mobile/ios/flutter_export_environment.sh
+
+# ══════════════════════════════════════════════
+# Terraform (infra/)
+# ══════════════════════════════════════════════
+# Local tfvars (may contain secrets)
+*.tfvars
+*.tfvars.json
+!example.tfvars
+
+# Terraform state (use remote backend — GCS)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+terraform.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ══════════════════════════════════════════════
+# Docker
+# ══════════════════════════════════════════════
+.dockerignore
+*.tar.gz
+*.img
+
+# ══════════════════════════════════════════════
+# Security — NEVER commit these
+# ══════════════════════════════════════════════
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+service-account*.json
+*credentials*.json
+gcp-credentials.json
+application_default_credentials.json
+.google-credentials.json
+google-services.json
+GoogleService-Info.plist
+firebase-adminsdk*.json
+.snyk
+
+# Secrets / API keys
+.env*
+!.env.example
+secrets/
+.secrets/
+
+# ══════════════════════════════════════════════
+# IDEs & Editors
+# ══════════════════════════════════════════════
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# ══════════════════════════════════════════════
+# OS generated
+# ══════════════════════════════════════════════
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ══════════════════════════════════════════════
+# Logs & temp files
+# ══════════════════════════════════════════════
+*.log
+logs/
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ══════════════════════════════════════════════
+# Model artifacts (use GCS instead)
+# ══════════════════════════════════════════════
+*.bst
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.pb
+model.bst
+model/
+
+# ══════════════════════════════════════════════
+# BigQuery / GCS local exports
+# ══════════════════════════════════════════════
+*.csv
+*.parquet
+*.avro
+!tests/fixtures/*.csv
